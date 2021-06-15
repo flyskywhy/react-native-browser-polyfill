@@ -1,5 +1,6 @@
-import { EventEmitter } from 'fbemitter';
-import { TextDecoder, TextEncoder } from 'text-encoding';
+import {Buffer} from 'buffer';
+import {TextDecoder, TextEncoder} from 'text-encoding';
+import Element from './DOM/Element';
 import Document from './DOM/Document';
 
 import './performance';
@@ -7,8 +8,11 @@ import './performance';
 import HTMLImageElement from './DOM/HTMLImageElement';
 import HTMLCanvasElement from './DOM/HTMLCanvasElement';
 import HTMLVideoElement from './DOM/HTMLVideoElement';
-import CanvasRenderingContext2D from 'expo-2d-context';
+import CanvasRenderingContext2D from '@flyskywhy/react-native-gcanvas/packages/gcanvas/src/context/2d/RenderingContext';
+import WebGLRenderingContext from '@flyskywhy/react-native-gcanvas/packages/gcanvas/src/context/webgl/RenderingContext';
 
+global.Document = global.Document || Document;
+global.Element = global.Element || Element;
 global.HTMLImageElement = global.HTMLImageElement || HTMLImageElement;
 global.Image = global.Image || HTMLImageElement;
 global.ImageBitmap = global.ImageBitmap || HTMLImageElement;
@@ -18,58 +22,28 @@ global.HTMLCanvasElement = global.HTMLCanvasElement || HTMLCanvasElement;
 global.Canvas = global.Canvas || HTMLCanvasElement;
 global.CanvasRenderingContext2D =
   global.CanvasRenderingContext2D || CanvasRenderingContext2D;
-global.WebGLRenderingContext = global.WebGLRenderingContext || function() {};
-
-function checkEmitter() {
-  if (
-    !window.emitter ||
-    !(
-      window.emitter.on ||
-      window.emitter.addEventListener ||
-      window.emitter.addListener
-    )
-  ) {
-    window.emitter = new EventEmitter();
-  }
-}
+global.WebGLRenderingContext =
+  global.WebGLRenderingContext || WebGLRenderingContext;
 
 window.scrollTo = window.scrollTo || (() => ({}));
 
 window.addEventListener = (eventName, listener) => {
-  checkEmitter();
-  const addListener = () => {
-    if (window.emitter.on) {
-      window.emitter.on(eventName, listener);
-    } else if (window.emitter.addEventListener) {
-      window.emitter.addEventListener(eventName, listener);
-    } else if (window.emitter.addListener) {
-      window.emitter.addListener(eventName, listener);
-    }
-  };
-
-  addListener();
+  window.document.addEventListener(eventName, listener);
 
   if (eventName.toLowerCase() === 'load') {
-    if (window.emitter && window.emitter.emit) {
-      setTimeout(() => {
-        window.emitter.emit('load');
-      }, 1);
-    }
+    setTimeout(() => {
+      window.document.dispatchEvent({type: 'load'});
+    }, 1);
   }
 };
 
-window.removeEventListener = (eventName, listener) => {
-  checkEmitter();
-  if (window.emitter.off) {
-    window.emitter.off(eventName, listener);
-  } else if (window.emitter.removeEventListener) {
-    window.emitter.removeEventListener(eventName, listener);
-  } else if (window.emitter.removeListener) {
-    window.emitter.removeListener(eventName, listener);
-  }
-};
+window.removeEventListener = (eventName, listener) =>
+  window.document.removeEventListener(eventName, listener);
+
+window.dispatchEvent = (event) => window.document.dispatchEvent(event);
 
 window.DOMParser = window.DOMParser || require('xmldom-qsa').DOMParser;
+global.Buffer = Buffer;
 global.TextDecoder = global.TextDecoder || TextDecoder;
 global.TextEncoder = global.TextEncoder || TextEncoder;
 
@@ -80,13 +54,15 @@ global.navigator.product = 'ReactNative';
 global.navigator.platform = global.navigator.platform || [];
 global.navigator.appVersion = global.navigator.appVersion || 'OS10';
 global.navigator.maxTouchPoints = global.navigator.maxTouchPoints || 5;
-global.navigator.standalone =
-  global.navigator.standalone === null ? true : global.navigator.standalone;
+global.navigator.standalone = global.navigator.hasOwnProperty('standalone')
+  ? global.navigator.standalone
+  : true;
 
-window['chrome'] = window['chrome'] || {
+window.chrome = window.chrome || {
   extension: {},
 };
-///https://www.w3schools.com/js/js_window_location.asp
+
+// https://www.w3schools.com/js/js_window_location.asp
 window.location = window.location || {
   href: '', //  window.location.href returns the href (URL) of the current page
   hostname: '', //window.location.hostname returns the domain name of the web host

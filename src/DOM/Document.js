@@ -28,9 +28,7 @@ class Document extends Element {
   }
 
   createElementNS(tagName) {
-    const element = this.createElement(tagName);
-    element.toDataURL = () => ({});
-    return element;
+    return this.createElement(tagName);
   }
 
   getElementById(id) {

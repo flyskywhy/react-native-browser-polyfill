@@ -1,9 +1,8 @@
 import Node from './Node';
-import CanvasRenderingContext2D from 'expo-2d-context';
 
 class Element extends Node {
   constructor(tagName) {
-    return super(tagName.toUpperCase());
+    super(tagName.toUpperCase());
 
     this.doc = {
       body: {
@@ -39,32 +38,16 @@ class Element extends Node {
     return window.innerHeight;
   }
 
-  getContext(contextType, contextOptions, context) {
-    const possibleContext = context || global.__context;
-    if (contextType != '2d' && possibleContext) {
-      return possibleContext;
-    }
-    if (contextType === '2d' && possibleContext) {
-      return new CanvasRenderingContext2D(possibleContext);
-    }
-
+  getBoundingClientRect() {
     return {
-      fillText: (text, x, y, maxWidth) => ({}),
-      measureText: text => ({
-        width: (text || '').split('').length * 6,
-        height: 24,
-      }),
-      fillRect: () => ({}),
-      drawImage: () => ({}),
-      getImageData: () => ({ data: new Uint8ClampedArray([255, 0, 0, 0]) }),
-      getContextAttributes: () => ({
-        stencil: true,
-      }),
-      getExtension: () => ({
-        loseContext: () => {},
-      }),
-      putImageData: () => ({}),
-      createImageData: () => ({}),
+      left: 0,
+      top: 0,
+      right: window.innerWidth,
+      bottom: window.innerHeight,
+      x: 0,
+      y: 0,
+      width: window.innerWidth,
+      height: window.innerHeight,
     };
   }
 
