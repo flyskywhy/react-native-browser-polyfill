@@ -1,7 +1,4 @@
 .DS_Store
-/example
 /node_modules
-test
 
-.babelrc
 npm-debug.log
