@@ -10,7 +10,7 @@ Browser polyfill with native canvas 2d 3d for React Native, can directly use can
 npm install @flyskywhy/react-native-browser-polyfill @flyskywhy/react-native-gcanvas
 ```
 
-And follow [the steps to install @flyskywhy/react-native-browser-polyfill](https://github.com/flyskywhy/react-native-gcanvas#react-native).
+And follow [the steps to install @flyskywhy/react-native-gcanvas](https://github.com/flyskywhy/react-native-gcanvas#react-native).
 
 ### Usage
 
