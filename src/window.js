@@ -10,6 +10,7 @@ import HTMLCanvasElement from './DOM/HTMLCanvasElement';
 import HTMLVideoElement from './DOM/HTMLVideoElement';
 import CanvasRenderingContext2D from '@flyskywhy/react-native-gcanvas/packages/gcanvas/src/context/2d/RenderingContext';
 import WebGLRenderingContext from '@flyskywhy/react-native-gcanvas/packages/gcanvas/src/context/webgl/RenderingContext';
+import ImageData from '@canvas/image-data/index';
 
 global.Document = global.Document || Document;
 global.Element = global.Element || Element;
@@ -24,6 +25,7 @@ global.CanvasRenderingContext2D =
   global.CanvasRenderingContext2D || CanvasRenderingContext2D;
 global.WebGLRenderingContext =
   global.WebGLRenderingContext || WebGLRenderingContext;
+global.ImageData = ImageData;
 
 window.scrollTo = window.scrollTo || (() => ({}));
 
