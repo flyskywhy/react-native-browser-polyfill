@@ -1,6 +1,6 @@
 {
   "name": "@flyskywhy/react-native-browser-polyfill",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "sideEffects": false,
   "description": "Browser polyfill with native canvas 2d 3d for making React Native compatible with web libs like zdog (and pixi.js, three.js, phaser.js to be validated)",
   "homepage": "https://github.com/flyskywhy/react-native-browser-polyfill#readme",
