@@ -1,5 +1,7 @@
 import {Buffer} from 'buffer';
 import {TextDecoder, TextEncoder} from 'text-encoding';
+import atob from 'atob/node-atob.js';
+import btoa from 'btoa';
 import Element from './DOM/Element';
 import Document from './DOM/Document';
 
@@ -45,6 +47,8 @@ window.removeEventListener = (eventName, listener) =>
 window.dispatchEvent = (event) => window.document.dispatchEvent(event);
 
 window.DOMParser = window.DOMParser || require('xmldom-qsa').DOMParser;
+window.atob = atob;
+window.btoa = btoa;
 global.Buffer = Buffer;
 global.TextDecoder = global.TextDecoder || TextDecoder;
 global.TextEncoder = global.TextEncoder || TextEncoder;
