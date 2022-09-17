@@ -111,6 +111,8 @@ element.innerHeight;
 element.offsetWidth;
 element.offsetHeight;
 element.getBoundingClientRect;
+element.getAttribute;
+element.setAttribute;
 ```
 
 #### Empty attributes that prevent libraries from crashing

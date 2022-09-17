@@ -17,6 +17,16 @@ class Element extends Node {
 
   setAttributeNS() {}
 
+  getAttribute(attributeName) {
+    return this[attributeName];
+  }
+
+  setAttribute(name, value) {
+    if (this.hasOwnProperty(name)) {
+      this[name] = value;
+    }
+  }
+
   get clientWidth() {
     return this.innerWidth;
   }
