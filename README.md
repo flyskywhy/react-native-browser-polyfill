@@ -69,6 +69,8 @@ image.addEventListener('load', () => console.log('Also can recieve event load by
 ### Canvas, HTMLCanvasElement
 [Example As Usage of @flyskywhy/react-native-gcanvas](https://github.com/flyskywhy/react-native-gcanvas#example-as-usage)
 
+`document.createElement('canvas')` (as offscreen canvas) usage also is described in `src/window.js`.
+
 ### window as global
 
 ```js

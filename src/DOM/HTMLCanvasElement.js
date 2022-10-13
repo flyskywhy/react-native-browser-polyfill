@@ -1,7 +1,7 @@
 import Element from './Element';
 
 class HTMLCanvasElement extends Element {
-  // TODO: with @flyskywhy/react-native-gcanvas/packages/gcanvas/src/env/off-screen-canvas.js
+  // Please use document.createElement('canvas') in Document.js which does not use HTMLCanvasElement.js here
   getContext(contextType) {
     return {
       fillText: (text, x, y, maxWidth) => ({}),

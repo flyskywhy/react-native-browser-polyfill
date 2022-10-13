@@ -18,7 +18,24 @@ class Document extends Element {
       case 'img':
         return new HTMLImageElement(tagName);
       case 'canvas':
-        return new HTMLCanvasElement(tagName);
+        if (createCanvasElements.length === 0) {
+          // the reason of "begining of your APP render()" here, is that most document.createElement('canvas')
+          // (as offscreen canvas) is invoked in another onscreen canvas's onCanvasCreate() and onCanvasResize() ,
+          // so if not "begining of your APP render()" or just not before onscreen canvas's <GCanvasView/> ,
+          // will cause `TypeError: undefined is not an object (evaluating 'canvas.width = ')` when onscreen canvas
+          // set offscreen canvas.width in onscreen canvas' onCanvasCreate()
+          console.warn('Need one <GCanvasView/> for each createElement at the begining of your APP render()!');
+          // return new HTMLCanvasElement(tagName);
+          return;
+        } else {
+          if (createCanvasCurrent === undefined) {
+            createCanvasCurrent = 0;
+          } else {
+            createCanvasCurrent = (createCanvasCurrent + 1) % createCanvasElements.length;
+          }
+
+          return createCanvasElements[createCanvasCurrent];
+        }
       case 'iframe':
         // Return nothing to keep firebase working.
         return null;
