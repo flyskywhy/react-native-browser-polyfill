@@ -25,7 +25,7 @@ class Document extends Element {
           // will cause `TypeError: undefined is not an object (evaluating 'canvas.width = ')` when onscreen canvas
           // set offscreen canvas.width in onscreen canvas' onCanvasCreate()
           console.warn('Need one <GCanvasView/> for each createElement at the begining of your APP render()!');
-          // return new HTMLCanvasElement(tagName);
+          return new HTMLCanvasElement(tagName);
           return;
         } else {
           if (createCanvasCurrent === undefined) {
