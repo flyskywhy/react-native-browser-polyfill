@@ -13,9 +13,12 @@ class HTMLCanvasElement extends Element {
       fillRect: () => ({}),
       drawImage: () => ({}),
       getImageData: () => ({data: new Uint8ClampedArray([255, 0, 0, 0])}),
-      getContextAttributes: () => ({
-        stencil: true,
-      }),
+
+      // OpenGL ES not support
+      // getContextAttributes: () => ({
+      //   stencil: true,
+      // }),
+
       getExtension: () => ({
         loseContext: () => {},
       }),
