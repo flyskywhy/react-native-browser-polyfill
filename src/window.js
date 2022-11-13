@@ -41,6 +41,7 @@ global.ImageData = ImageData;
 //                zIndex: -100, // -100 should enough to not bother onscreen canvas
 //              }}
 //              onCanvasCreate={(canvas) => global.createCanvasElements.push(canvas)}
+//              devicePixelRatio={1} // should not 1 < devicePixelRatio < 2 as float to avoid pixel offset flaw when GetImageData with PixelsSampler in @flyskywhy/react-native-gcanvas/core/src/support/GLUtil.cpp
 //              isGestureResponsible={false}
 //            />
 global.createCanvasElements = [];
