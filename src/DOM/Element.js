@@ -64,6 +64,8 @@ class Element extends Node {
   get ontouchstart() {
     return {};
   }
+
+  focus() {}
 }
 
 export default Element;
