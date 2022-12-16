@@ -122,6 +122,7 @@ element.setAttribute;
 ```js
 element.tagName;
 element.setAttributeNS;
+element.focus;
 ```
 
 ### Node
