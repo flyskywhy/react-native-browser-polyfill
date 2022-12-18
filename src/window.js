@@ -34,7 +34,7 @@ global.ImageData = ImageData;
 //            <GCanvasView
 //              style={{
 //                width: 1000, // 1000 should enough for offscreen canvas usage
-//                height: 1000,
+//                height: 1000, // or Dimensions.get('window').height * 2 like https://github.com/flyskywhy/react-native-babylonjs/commit/d5df5d2
 //                position: 'absolute',
 //                left: 1000, // 1000 should enough to not display on screen means offscreen canvas :P
 //                top: 0,
