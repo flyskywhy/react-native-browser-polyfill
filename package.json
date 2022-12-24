@@ -18,6 +18,7 @@
     "document",
     "dogz",
     "dom",
+    "offscreen-canvas",
     "polyfill",
     "react",
     "react-native",
@@ -45,7 +46,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
-    "@flyskywhy/react-native-gcanvas": "^2.3.0",
+    "@flyskywhy/react-native-gcanvas": "^5.1.0",
     "react": "^16.8.6",
     "react-native": "*"
   },

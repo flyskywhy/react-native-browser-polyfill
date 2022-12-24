@@ -30,7 +30,7 @@ global.WebGLRenderingContext =
 global.ImageData = ImageData;
 
 // createCanvasElements and createCanvasCurrent are not members of standard global, they are
-// used for document.createElement('canvas') (as offscreen canvas) works with relevant component:
+// used for document.createElement('canvas') (as offscreen canvas) works with relevant offscreenCanvas={true} component:
 //            <GCanvasView
 //              style={{
 //                width: 1000, // 1000 should enough for offscreen canvas usage
@@ -40,9 +40,10 @@ global.ImageData = ImageData;
 //                top: 0,
 //                zIndex: -100, // -100 should enough to not bother onscreen canvas
 //              }}
-//              onCanvasCreate={(canvas) => global.createCanvasElements.push(canvas)}
+//              offscreenCanvas={true}
+//              onCanvasCreate={(canvas) => this.setState({hasOc1: true})} // it's better to setState some as describe in https://github.com/flyskywhy/react-native-gcanvas/blob/master/README.MD
 //              devicePixelRatio={1} // should not 1 < devicePixelRatio < 2 as float to avoid pixel offset flaw when GetImageData with PixelsSampler in @flyskywhy/react-native-gcanvas/core/src/support/GLUtil.cpp
-//              isGestureResponsible={false}
+//              isGestureResponsible={false} // who will need gesture with offscreen canvas?
 //            />
 global.createCanvasElements = [];
 global.createCanvasCurrent = undefined;
