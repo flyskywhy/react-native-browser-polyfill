@@ -1,3 +1,5 @@
+// ref to https://github.com/flyskywhy/GCanvasRNExamples/blob/master/app/components/ZdogAndTests.js
+
 import React, {Component} from 'react';
 import {
   Platform,

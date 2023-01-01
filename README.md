@@ -22,15 +22,15 @@ If you don't want import it in your project root, you can also import the librar
 import '@flyskywhy/react-native-browser-polyfill';
 ```
 
-If canvas 2d or 3d needed, ref to README.md of [@flyskywhy/react-native-gcanvas](https://github.com/flyskywhy/react-native-gcanvas), or just ref to [demo/zdog-and-tests.js](demo/zdog-and-tests.js) here.
+If canvas 2d or 3d needed, ref to README.md of [@flyskywhy/react-native-gcanvas](https://github.com/flyskywhy/react-native-gcanvas), or just ref to [ZdogAndTests.js](https://github.com/flyskywhy/GCanvasRNExamples/blob/master/app/components/ZdogAndTests.js).
 
 ## Example
 ### zdog
 No need modify any code of framework [zdog](https://github.com/metafizzy/zdog) itself.
 
-Only modify one line code of app demo [Made with Zdog CodePen Collection](https://codepen.io/collection/DzdGMe/), e.g. just modify `.zdog-canvas` in `JS` of [https://codepen.io/clarke-nicol/pen/OezRdM](https://codepen.io/clarke-nicol/pen/OezRdM) into `this.canvas` in `zdog()` of [demo/zdog-and-tests.js](demo/zdog-and-tests.js).
+Only modify one line code of app demo [Made with Zdog CodePen Collection](https://codepen.io/collection/DzdGMe/), e.g. just modify `.zdog-canvas` in `JS` of [https://codepen.io/clarke-nicol/pen/OezRdM](https://codepen.io/clarke-nicol/pen/OezRdM) into `this.canvas` in this GCanvasRNExamples APP commit [react -> react-native: `Zdog and Tests` step3 Zdog works well](https://github.com/flyskywhy/GCanvasRNExamples/commit/7855e91).
 
-Here is the result of [demo/zdog-and-tests.js](demo/zdog-and-tests.js), you can directly discover that the `render` and `mousemove` is same with the original html version [https://codepen.io/clarke-nicol/pen/OezRdM](https://codepen.io/clarke-nicol/pen/OezRdM).
+Here is the result of [ZdogAndTests.js](https://github.com/flyskywhy/GCanvasRNExamples/blob/master/app/components/ZdogAndTests.js), you can directly discover that the `render` and `mousemove` is same with the original html version [https://codepen.io/clarke-nicol/pen/OezRdM](https://codepen.io/clarke-nicol/pen/OezRdM).
 
 <img src="https://raw.githubusercontent.com/flyskywhy/react-native-browser-polyfill/master/assets/zdog-and-tests.gif" width="480">
 
@@ -55,7 +55,7 @@ class Canvas
 
 ### Image, HTMLImageElement, ImageBitmap
 
-Image can load from `https://somewhere.com/some.png` or from require('some.png') on Android, iOS and Web, ref to the [demo/zdog-and-tests.js](demo/zdog-and-tests.js).
+Image can load from `https://somewhere.com/some.png` or from require('some.png') on Android, iOS and Web, ref to the [ZdogAndTests.js](https://github.com/flyskywhy/GCanvasRNExamples/blob/master/app/components/ZdogAndTests.js) or [nonDeclarative.js](https://github.com/flyskywhy/GCanvasRNExamples/blob/master/src/nonDeclarative.js).
 
 ```js
 const image = document.createElement('img');
