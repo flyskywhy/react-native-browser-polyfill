@@ -46,8 +46,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
-    "@flyskywhy/react-native-gcanvas": "^5.1.0",
-    "react": "^16.8.6",
+    "@flyskywhy/react-native-gcanvas": "*",
+    "react": "*",
     "react-native": "*"
   },
   "dependencies": {
