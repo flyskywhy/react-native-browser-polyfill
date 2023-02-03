@@ -16,7 +16,7 @@ And follow [the steps to install @flyskywhy/react-native-gcanvas](https://github
 
 Import the library just into your project root `/index.js` , `/index.android.js` , `/index.ios.js` or `/index.native.js`.
 
-If you don't want import it in your project root, you can also import the library into any JavaScript file where you want use it.
+If you don't want import it in your project root, you can also import the library into any JavaScript file where you want use it. But if `inlineRequires` is true in your `metro.config.js`, you will get `ERROR  ReferenceError: Can't find variable: document` or `ERROR  ReferenceError: Property 'document' doesn't exist, js engine: hermes`, then you should change `inlineRequires` to false or import the library into your project root e.g. `/index.android.js`.
 
 ```js
 import '@flyskywhy/react-native-browser-polyfill';
