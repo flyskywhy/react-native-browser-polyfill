@@ -47,6 +47,11 @@ global.ImageData = ImageData;
 //            />
 global.createCanvasElements = [];
 global.createCanvasCurrent = undefined;
+// ios release (RN0.71.6 JSC) createCanvasElements.push(canvas) in a class but still
+// get [] means createCanvasElements.length is 0 in another class, so have to
+// use createCanvasElementsObj below, and reserve createCanvasElements for compatible
+global.createCanvasElementsObj = {};
+global.createCanvasObjCurrent = undefined;
 
 window.scrollTo = window.scrollTo || (() => ({}));
 
